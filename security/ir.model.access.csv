@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_manageadrian_task,manageadrian.task,model_manageadrian_task,base.group_user,1,1,1,1
+access_manageadrian_sprint,manageadrian.sprint,model_manageadrian_sprint,base.group_user,1,1,1,1
+access_manageadrian_project,manageadrian.project,model_manageadrian_project,base.group_user,1,1,1,1
+access_manageadrian_history,manageadrian.history,model_manageadrian_history,base.group_user,1,1,1,1
+access_manageadrian_technology,manageadrian.technology,model_manageadrian_technology,base.group_user,1,1,1,1

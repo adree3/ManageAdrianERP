@@ -1,0 +1,70 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="vista_manageadrian_sprint_tree">
+      <field name="name">vista_manageadrian_sprint_tree</field>
+      <field name="model">manageadrian.sprint</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- Plantilla formulario tipo form      -->
+
+
+    <record model="ir.ui.view" id="vista_manageadrian_sprint_form">
+      <field name="name">vista_manageadrian_sprint_form</field>
+      <field name="model">manageadrian.sprint</field>
+      <field name="arch" type="xml">
+        <form string="formulario_sprint" >
+          <sheet>
+            <group name="group_top">
+              <field name="name"/>
+              <field name="description"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="tareas_id"/>
+              <field name="duration"/>
+              <field name="project_id"/>
+              
+            </group>
+          </sheet>
+
+        </form>
+      </field>
+    </record> 
+
+
+    <!-- Plantilla action -->
+
+  
+    <record model="ir.actions.act_window" id="accion_manageadrian_sprint_form">
+      <field name="name">Listado de sprint</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">manageadrian.sprint</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          genero
+        </p>
+        <p> Click <strong> 'Crear' </strong> para añadir nuevos elementos
+         </p>
+      </field>
+    </record>  
+
+
+      <!-- Top menu item -->
+
+    <menuitem name="manage de adrian" id="menu_manageadrian_raiz"/>
+     <!-- Top menu item -->
+    <menuitem name="Listado de sprint" id="menu_manageadrian_listado_sprint" parent="menu_manageadrian_raiz"/>
+
+    <!-- actions -->
+    <menuitem name="Consultar" id="menu_manageadrian_sprint" parent="menu_manageadrian_listado_sprint"
+    action="accion_manageadrian_sprint_form"/>
+    </data>
+</odoo>
