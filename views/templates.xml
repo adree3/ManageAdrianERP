@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+<!-- Definición de la plantilla QWeb -->
+    <template id="report_task_pdf_template">
+        <t t-call="manageadrian.report_task_pdf_template">
+            <div class="page">
+                <h2>Tarea: <t t-esc="doc.name"/></h2>
+                <!-- <p><strong>Código:</strong> <t t-esc="doc.code"/></p>
+                <p><strong>Descripción:</strong> <t t-esc="doc.description or 'No disponible'"/></p>
+                <p><strong>Fecha de inicio:</strong> <t t-esc="doc.start_date"/></p>
+                <p><strong>Fecha de fin:</strong> <t t-esc="doc.end_date"/></p>
+                <p><strong>Estado:</strong> <t t-esc="doc.is_paused and 'Pausado' or 'Activo'"/></p>
+                <p><strong>Sprint:</strong> <t t-esc="doc.carrera_id.name if doc.carrera_id else 'No asignado'"/></p>
+                <p><strong>Tecnologías:</strong> <t t-esc="', '.join([t.name for t in doc.tecnologias_id]) if doc.tecnologias_id else 'No asignadas'"/></p>
+                <p><strong>Proyecto:</strong> <t t-esc="doc.proyect_id.name"/></p>
+                <p><strong>Definición de fecha:</strong> <t t-esc="doc.defination_date"/></p> -->
+            </div>
+        </t>
+    </template>
+  </data>
+</odoo>
+
+    

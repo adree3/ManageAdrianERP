@@ -1,0 +1,77 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="vista_manageadrian_task_tree">
+      <field name="name">vista_manageadrian_task_tree</field>
+      <field name="model">manageadrian.task</field>
+      <field name="arch" type="xml">
+        <tree>
+              <field name="code"/>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="is_paused"/>
+              <field name="carrera_id"/>
+              <field name="tecnologias_id"/>
+              <field name="history_id"/>
+              <field name="proyect_id"/>
+              <field name="defination_date"/>
+              <button name="action_generate_pdf" type="object" string="Generar PDF" class="btn-primary"/>
+             
+        </tree>
+      </field>
+    </record>
+
+<!-- Plantilla formulario tipo form      -->
+
+
+    <record model="ir.ui.view" id="vista_manageadrian_task_form">
+      <field name="name">vista_manageadrian_task_form</field>
+      <field name="model">manageadrian.task</field>
+      <field name="arch" type="xml">
+        <form string="formulario_task" >
+          <sheet>
+            <group>
+              <field name="code"/>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="is_paused"/>
+              <field name="carrera_id"/>
+              <field name="tecnologias_id"/>
+              <field name="history_id"/>
+              <field name="proyect_id"/>
+              <field name="defination_date"/>
+            </group>
+            <!--<footer>
+              <button name="action_generate_pdf" type="object" string="Generar PDF" class="btn-primary"/>
+            </footer>-->
+          </sheet>
+        </form>
+      </field>
+    </record> 
+
+    <record model="ir.actions.act_window" id="accion_manageadrian_task_form">
+      <field name="name">Listado de Tareas</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">manageadrian.task</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  <!-- Top menu item -->
+    <menuitem name="Manage de Adrian" id="menu_manageadrian_raiz"/>
+ 
+    <!-- menu categories -->
+    <menuitem name="Dirección" id="menu_manageadrian_listado" parent="menu_manageadrian_raiz"/>
+ 
+    <!-- actions -->
+    <menuitem name="Task" id="menu_manageadrian_task" parent="menu_manageadrian_listado"
+              action="accion_manageadrian_task_form"/>
+    
+
+  </data>
+</odoo>
