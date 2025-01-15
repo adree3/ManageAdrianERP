@@ -7,8 +7,19 @@
       <field name="model">manageadrian.task</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
-          <field name="description"/>
+              <field name="code"/>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="is_paused"/>
+              <field name="carrera_id"/>
+              <field name="tecnologias_id"/>
+              <field name="history_id"/>
+              <field name="proyect_id"/>
+              <field name="defination_date"/>
+              <button name="action_generate_pdf" type="object" string="Generar PDF" class="btn-primary"/>
+             
         </tree>
       </field>
     </record>
@@ -22,54 +33,45 @@
       <field name="arch" type="xml">
         <form string="formulario_task" >
           <sheet>
-            <group name="group_top">
+            <group>
               <field name="code"/>
               <field name="name"/>
               <field name="description"/>
               <field name="start_date"/>
               <field name="end_date"/>
-              <field name= "is_paused"/>
-              <field name= "carrera_id"/>
-              <field name= "tecnologias_id"/>
+              <field name="is_paused"/>
+              <field name="carrera_id"/>
+              <field name="tecnologias_id"/>
               <field name="history_id"/>
               <field name="proyect_id"/>
-              
-
-              
+              <field name="defination_date"/>
             </group>
+            <!--<footer>
+              <button name="action_generate_pdf" type="object" string="Generar PDF" class="btn-primary"/>
+            </footer>-->
           </sheet>
-
         </form>
       </field>
     </record> 
 
-
-    <!-- Plantilla action -->
-
-  
     <record model="ir.actions.act_window" id="accion_manageadrian_task_form">
-      <field name="name">Listado de task</field>
+      <field name="name">Listado de Tareas</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">manageadrian.task</field>
       <field name="view_mode">tree,form</field>
-      <field name="help" type="html">
-        <p class="oe_view_nocontent_create">
-          genero
-        </p>
-        <p> Click <strong> 'Crear' </strong> para añadir nuevos elementos
-         </p>
-      </field>
-    </record>  
+    </record>
+
 
   <!-- Top menu item -->
-
-    <menuitem name="manage de adrian" id="menu_manageadrian_raiz"/>
-
-     <!-- Top menu item -->
-    <menuitem name="Listado de task" id="menu_manageadrian_listado_task" parent="menu_manageadrian_raiz"/>
-
+    <menuitem name="Manage de Adrian" id="menu_manageadrian_raiz"/>
+ 
+    <!-- menu categories -->
+    <menuitem name="Dirección" id="menu_manageadrian_listado" parent="menu_manageadrian_raiz"/>
+ 
     <!-- actions -->
-    <menuitem name="Consultar" id="menu_manageadrian_task" parent="menu_manageadrian_listado_task"
-    action="accion_manageadrian_task_form"/>
-    </data>
+    <menuitem name="Task" id="menu_manageadrian_task" parent="menu_manageadrian_listado"
+              action="accion_manageadrian_task_form"/>
+    
+
+  </data>
 </odoo>

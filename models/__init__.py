@@ -6,3 +6,4 @@ from . import project
 from . import sprint
 from . import task
 from . import technology
+from . import developer

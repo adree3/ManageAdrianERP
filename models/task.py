@@ -13,8 +13,7 @@ class Task(models.Model):
     is_paused = fields.Boolean(string="¿Pausado?")
 
     code = fields.Char(string="Código", compute="_compute_code")
-
-    carrera_id = fields.Many2one("manageadrian.sprint", compute="_get_sprint",string="Carrera", ondelete="cascade")
+    carrera_id = fields.Many2one("manageadrian.sprint", compute="_get_sprint",string="Carrera", ondelete="cascade", store= True)
 
     tecnologias_id = fields.Many2many(
         comodel_name="manageadrian.technology", 
@@ -29,6 +28,11 @@ class Task(models.Model):
     
     proyect_id= fields.Many2one("manageadrian.project", related = "history_id.project_id", readonly = True)
     
+    #def _get_defination_date(self):
+    #    return datetime.datetime.now()
+
+    defination_date = fields.Datetime(default=lambda p: fields.Datetime.now())
+
 
     def _compute_code(self):
         for task in self:
@@ -37,22 +41,17 @@ class Task(models.Model):
     @api.depends('history_id.project_id')
     def _get_sprint(self):
         for task in self:
-            # Por defecto, limpiamos el campo
             task.carrera_id = False
-
-            # Validamos que exista history_id y project_id
             if not task.history_id or not task.history_id.project_id:
                 continue
-
-            # Buscar los sprints asociados al proyecto
             sprints = self.env['manageadrian.sprint'].search([
                 ('project_id', '=', task.history_id.project_id.id)
             ])
-
-            # Asignar el primer sprint válido (si existe)
             for sprint in sprints:
-                if sprint.end_date and sprint.end_date > datetime.datetime.now():
+                if sprint.end_date and sprint.end_date > fields.Datetime.now():
                     task.carrera_id = sprint.id
-                    break  # Detenemos la búsqueda después de asignar
+                    break  
 
-        
+    def action_generate_pdf(self):
+      return self.env.ref('manageadrian.report_task_pdf').report_action(self)
+    

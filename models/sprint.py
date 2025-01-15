@@ -9,7 +9,7 @@ class Sprint(models.Model):
     name = fields.Char(string="Nombre", required=True, help="Introduzca el nombre")
     description = fields.Text(string="Descripción")
 
-    duration = fields.Integer(string="Duración (días)")
+    duration = fields.Integer(default=15,string="Duración (días)") 
     start_date = fields.Datetime(string="Fecha de inicio")
     end_date = fields.Datetime(string="Fecha de fin", compute="_compute_end_date", store=True)
 
@@ -18,6 +18,10 @@ class Sprint(models.Model):
 
     # Muchas carreras tienen un proyecto
     project_id = fields.Many2one("manageadrian.project", string="Project", required=True, ondelete="cascade")
+
+
+    
+
 
     @api.depends('start_date', 'duration')
     def _compute_end_date(self):

@@ -9,6 +9,8 @@
         <tree>
           <field name="name"/>
           <field name="description"/>
+          <field name="image"/>
+          <field name="tareas_id"/>
         </tree>
       </field>
     </record>
@@ -58,17 +60,13 @@
 
 
     <!-- Top menu item -->
-
-    <menuitem name="manage de adrian" id="menu_manageadrian_raiz"/>
-
+    <menuitem name="Manage de Adrian" id="menu_manageadrian_raiz"/>
+ 
     <!-- menu categories -->
-
-    <menuitem name="Listado de tecnologias" id="menu_manageadrian_listado_technology" parent="menu_manageadrian_raiz"/>
-
+    <menuitem name="Dirección" id="menu_manageadrian_listado" parent="menu_manageadrian_raiz"/>
+ 
     <!-- actions -->
-
-    <menuitem name="Consultar Tecnologias" id="menu_filmotecaadrian_technology" parent="menu_manageadrian_listado_technology"
+    <menuitem name="Technology" id="menu_manageadrian_technology" parent="menu_manageadrian_listado"
               action="accion_manageadrian_technology_form"/>
-
     </data>
 </odoo>

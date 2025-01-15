@@ -9,6 +9,9 @@
         <tree>
           <field name="name"/>
           <field name="description"/>
+          <field name="history_id"/>
+          <field name="sprint_id"/>
+
         </tree>
       </field>
     </record>
@@ -54,17 +57,14 @@
     </record>  
 
 
-     <!-- Top menu item -->
-
-    <menuitem name="manage de adrian" id="menu_manageadrian_raiz"/>
-   <!-- menu categories -->
-
-    <menuitem name="Listado de project" id="menu_manageadrian_listado_project" parent="menu_manageadrian_raiz"/>
-
+    <!-- Top menu item -->
+    <menuitem name="Manage de Adrian" id="menu_manageadrian_raiz"/>
+ 
+    <!-- menu categories -->
+    <menuitem name="Dirección" id="menu_manageadrian_listado" parent="menu_manageadrian_raiz"/>
+ 
     <!-- actions -->
-
-    <menuitem name="Consultar Tecnologias" id="menu_manageadrian_project" parent="menu_manageadrian_listado_project"
+    <menuitem name="Project" id="menu_manageadrian_project" parent="menu_manageadrian_listado"
               action="accion_manageadrian_project_form"/>
-
     </data>
 </odoo>

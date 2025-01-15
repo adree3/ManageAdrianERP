@@ -31,6 +31,8 @@
         'views/task.xml',
         'views/technology.xml',
         'views/project.xml',
+        'views/developer.xml',
+        'reports/report_task_pdf.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
